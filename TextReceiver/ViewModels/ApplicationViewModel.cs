@@ -12,6 +12,7 @@ namespace TextReceiver.ViewModels
   public class ApplicationViewModel : ObservableObject, IViewModel
   {
     private ICommand _changePageCommand;
+
     private IViewModel _currentViewModel;
     private List<IViewModel> _viewModels;
 
@@ -54,6 +55,7 @@ namespace TextReceiver.ViewModels
     {
       ViewModels.Add(new ConversationViewModel());
       var contactsViewModel = new ContactsViewModel();
+      contactsViewModel.ContactSelected += ContactSelected;
       ViewModels.Add(contactsViewModel);
 
       CurrentViewModel = ViewModels[1];
@@ -68,7 +70,7 @@ namespace TextReceiver.ViewModels
       CurrentViewModel = viewModel;
     }
 
-    private void ContactSelected(object sender, System.Windows.RoutedEventArgs e)
+    private void ContactSelected(object sender)
     {
       Console.WriteLine("a contact was selected");
     }

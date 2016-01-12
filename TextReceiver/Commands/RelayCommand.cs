@@ -8,6 +8,7 @@ using System.Windows.Input;
 
 namespace TextReceiver.Commands
 {
+  public delegate void ContactSelectedDelegate(object obj);
   public class RelayCommand : ICommand
   {
     readonly Action<object> _execute;

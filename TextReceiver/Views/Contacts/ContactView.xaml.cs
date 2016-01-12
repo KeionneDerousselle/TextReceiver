@@ -20,14 +20,6 @@ namespace TextReceiver.Views
   /// </summary>
   public partial class ContactView : UserControl
   {
-    //public static readonly RoutedEvent ContactClickedEvent = EventManager.RegisterRoutedEvent("ContactClicked",
-    //  RoutingStrategy.Bubble, typeof (RoutedEventHandler), typeof (ContactView)); 
-    //public event RoutedEventHandler ContactClicked
-    //{
-    //  add { AddHandler(ContactClickedEvent, value);}
-    //  remove { RemoveHandler(ContactClickedEvent, value);}
-    //}
-
     public static DependencyProperty ContactClickedCommandProperty = DependencyProperty.Register("ContactClickedCommand", typeof(ICommand), typeof(ContactView));
     public ICommand ContactClickedCommand {
       get { return (ICommand) GetValue(ContactClickedCommandProperty); }
@@ -39,9 +31,9 @@ namespace TextReceiver.Views
       InitializeComponent();
     }
 
-    private void On_Contact_Click(object sender, System.Windows.RoutedEventArgs e)
-    {
-      //this.RaiseEvent(new RoutedEventArgs(ContactClickedEvent, this));
+    private void On_Contact_Click(object sender, RoutedEventArgs routedEventArgs)
+    { 
+      ContactClickedCommand.Execute(sender);
     }
   }
 }

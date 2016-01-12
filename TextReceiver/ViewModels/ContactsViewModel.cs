@@ -12,7 +12,9 @@ namespace TextReceiver.ViewModels
   public class ContactsViewModel : IViewModel
   {
     private ICommand _contactSelected;
-    public ICommand ContactSelected {
+    public ContactSelectedDelegate ContactSelected { get; set; }
+
+    public ICommand ContactSelectedCommand {
       get {
         if (_contactSelected == null)
         {
@@ -20,6 +22,7 @@ namespace TextReceiver.ViewModels
         }
         return _contactSelected;
       }
+      set { _contactSelected = value; }
     }
 
     public ContactsViewModel()
@@ -28,7 +31,7 @@ namespace TextReceiver.ViewModels
     private void On_Contact_Selected(object sender)
     {
       Console.WriteLine("was caught here");
-      //this.RaiseEvent(new RoutedEventArgs(ContactSelectedEvent, this));
+      ContactSelected?.Invoke(sender);
     }
   }
 }
