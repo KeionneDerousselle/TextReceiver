@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TextReceiver.Views"
              xmlns:components="clr-namespace:TextReceiver.Views.common"
              mc:Ignorable="d">
-    <Button Background="Transparent" Click="On_Contact_Click">
+    <Button Background="Transparent">
         <Button.Content>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Black">
                 <components:Avatar></components:Avatar>

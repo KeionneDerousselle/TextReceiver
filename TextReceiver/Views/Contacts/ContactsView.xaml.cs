@@ -21,22 +21,10 @@ namespace TextReceiver.Views
   /// </summary>
   public partial class ContactsView : UserControl
   {
-    public static readonly RoutedEvent ContactSelectedEvent = EventManager.RegisterRoutedEvent("ContactSelected", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ContactView));
-
-    public event RoutedEventHandler ContactClicked
-    {
-      add { AddHandler(ContactSelectedEvent, value); }
-      remove { RemoveHandler(ContactSelectedEvent, value); }
-    }
     public ContactsView()
     {
       DataContext = new ContactsViewModel();
       InitializeComponent();
     }
-
-    //private void On_Contact_Selected(object sender, System.Windows.RoutedEventArgs e)
-    //{
-    //  this.RaiseEvent(new RoutedEventArgs(ContactSelectedEvent, this));
-    //}
   }
 }

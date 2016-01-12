@@ -7,15 +7,15 @@
              mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="450">
     <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
         <StackPanel >
-            <views:ContactView ContactClicked="{ Binding DataContext.On_Contact_Selected, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></views:ContactView>
-            <views:ContactView ContactClicked="{ Binding DataContext.On_Contact_Selected, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></views:ContactView>
-            <views:ContactView ContactClicked="{ Binding DataContext.On_Contact_Selected, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></views:ContactView>
-            <views:ContactView ContactClicked="{ Binding DataContext.On_Contact_Selected, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></views:ContactView>
-            <views:ContactView ContactClicked="{ Binding DataContext.On_Contact_Selected, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></views:ContactView>
-            <views:ContactView ContactClicked="{ Binding DataContext.On_Contact_Selected, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></views:ContactView>
-            <views:ContactView ContactClicked="{ Binding DataContext.On_Contact_Selected, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></views:ContactView>
-            <views:ContactView ContactClicked="{ Binding DataContext.On_Contact_Selected, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></views:ContactView>
-            <views:ContactView ContactClicked="{ Binding DataContext.On_Contact_Selected, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"></views:ContactView>
+            <views:ContactView ContactClickedCommand="{Binding ContactSelectedCommand}"></views:ContactView>
+            <views:ContactView ContactClickedCommand="{Binding ContactSelectedCommand}"></views:ContactView>
+            <views:ContactView ContactClickedCommand="{Binding ContactSelectedCommand}"></views:ContactView>
+            <views:ContactView ContactClickedCommand="{Binding ContactSelectedCommand}"></views:ContactView>
+            <views:ContactView ContactClickedCommand="{Binding ContactSelectedCommand}"></views:ContactView>
+            <views:ContactView ContactClickedCommand="{Binding ContactSelectedCommand}"></views:ContactView>
+            <views:ContactView ContactClickedCommand="{Binding ContactSelectedCommand}"></views:ContactView>
+            <views:ContactView ContactClickedCommand="{Binding ContactSelectedCommand}"></views:ContactView>
+            <views:ContactView ContactClickedCommand="{Binding ContactSelectedCommand}"></views:ContactView>
         </StackPanel>
     </ScrollViewer>
 </UserControl>

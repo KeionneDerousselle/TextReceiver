@@ -21,7 +21,6 @@ namespace TextReceiver
       MainWindow app = new MainWindow();
       ApplicationViewModel context = new ApplicationViewModel();
       app.DataContext = context;
-      app.Show();
     }
   }
 }
