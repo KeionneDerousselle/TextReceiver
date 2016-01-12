@@ -1,0 +1,30 @@
+﻿<Window x:Class="TextReceiver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:components="clr-namespace:TextReceiver.Views"
+        xmlns:local="clr-namespace:TextReceiver.ViewModels"
+        mc:Ignorable="d"
+        Title="Text Receiver" Height="550" Width="450" ResizeMode="CanMinimize">
+    <!--<Window.Resources>
+        <DataTemplate DataType="{x:Type local:ConversationViewModel}">
+            <components:ConversationView></components:ConversationView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:ContactsViewModel}">
+            <components:ContactsView></components:ContactsView>
+        </DataTemplate>
+    </Window.Resources>-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <components:AppBar Grid.Row="0"></components:AppBar>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <ContentControl x:Name="ContentArea" Content="{Binding CurrentViewModel}"></ContentControl>
+        </ScrollViewer>
+        <components:MessageBarView Grid.Row="2" ></components:MessageBarView>
+    </Grid>
+</Window>
