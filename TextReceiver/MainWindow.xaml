@@ -7,14 +7,14 @@
         xmlns:local="clr-namespace:TextReceiver.ViewModels"
         mc:Ignorable="d"
         Title="Text Receiver" Height="550" Width="450" ResizeMode="CanMinimize">
-    <!--<Window.Resources>
+    <Window.Resources>
         <DataTemplate DataType="{x:Type local:ConversationViewModel}">
             <components:ConversationView></components:ConversationView>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:ContactsViewModel}">
             <components:ContactsView></components:ContactsView>
         </DataTemplate>
-    </Window.Resources>-->
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
