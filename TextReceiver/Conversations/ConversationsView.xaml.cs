@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TextReceiver.Conversation
+namespace TextReceiver.Conversations
 {
   /// <summary>
-  /// Interaction logic for ConversationView.xaml
+  /// Interaction logic for ConversationsView.xaml
   /// </summary>
-  public partial class ConversationView : UserControl
+  public partial class ConversationsView : UserControl
   {
-    public ConversationView()
+    public ConversationsView()
     {
       InitializeComponent();
     }

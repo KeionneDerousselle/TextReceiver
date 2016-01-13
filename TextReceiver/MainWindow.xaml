@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:views="clr-namespace:TextReceiver.Views"
-        xmlns:conversation="clr-namespace:TextReceiver.Conversation"
+        xmlns:conversations="clr-namespace:TextReceiver.Conversations"
+        xmlns:selectedConversation="clr-namespace:TextReceiver.SelectedConversation"
         xmlns:contacts="clr-namespace:TextReceiver.Contacts"
         xmlns:message="clr-namespace:TextReceiver.Message"
         mc:Ignorable="d"
@@ -12,11 +13,11 @@
         DataContext = "{Binding Source={StaticResource VMLocator}, Path=ApplicationViewModel }">
     
     <Window.Resources>
-        <DataTemplate DataType="{x:Type conversation:ConversationViewModel}">
-            <conversation:ConversationView></conversation:ConversationView>
+        <DataTemplate DataType="{x:Type conversations:ConversationsViewModel}">
+            <conversations:ConversationsView></conversations:ConversationsView>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type contacts:ContactsViewModel}">
-            <contacts:ContactsView></contacts:ContactsView>
+        <DataTemplate DataType="{x:Type selectedConversation:SelectedConversationViewModel}">
+            <selectedConversation:SelectedConversationView></selectedConversation:SelectedConversationView>
         </DataTemplate>
     </Window.Resources>
     <Grid>
@@ -26,9 +27,9 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <views:AppBar Grid.Row="0"></views:AppBar>
-        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-            <ContentControl x:Name="ContentArea" Content="{Binding CurrentViewModel}"></ContentControl>
-        </ScrollViewer>
+         <StackPanel Grid.Row="1" Background="Black">
+             <ContentControl x:Name="ContentArea" Content="{Binding CurrentViewModel}"></ContentControl>
+         </StackPanel>
         <message:MessageBarView Grid.Row="2" ></message:MessageBarView>
     </Grid>
 </Window>

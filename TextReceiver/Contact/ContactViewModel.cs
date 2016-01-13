@@ -1,11 +1,9 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using TextReceiver.Commands;
 using TextReceiver.TextReceiverMessages;
 using TextReceiver.ViewModels;
-using TextReceiver.Models;
 
 namespace TextReceiver.Contact
 {

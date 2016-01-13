@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TextReceiver.Views"
              xmlns:components="clr-namespace:TextReceiver.Views.common"
              mc:Ignorable="d" 
               d:DesignWidth="300" Background="White">
@@ -16,8 +15,8 @@
                 <StackPanel
                     Orientation="Vertical"
                     Width="255">
-                    <Label>Keionne Derousselle : 10:36 AM</Label>
-                    <TextBlock  TextWrapping="Wrap" >Some more text goes here that I reply to a message and it's really really long text that should wrap</TextBlock>
+                    <Label Content="{Binding Message.Sender.Name}"></Label>
+                    <TextBlock  TextWrapping="Wrap" Text="{Binding Message.Content}"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

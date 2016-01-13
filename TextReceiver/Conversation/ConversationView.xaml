@@ -3,26 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:conversation="clr-namespace:TextReceiver.Conversation"
-             xmlns:message="clr-namespace:TextReceiver.Message"
-             mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="450"
-             DataContext = "{Binding Source={StaticResource VMLocator}, Path=ConversationViewModel }"
-             >
-    <!--<UserControl.DataContext>
-        <conversation:ConversationViewModel></conversation:ConversationViewModel>
-    </UserControl.DataContext>-->
-    <Grid>
-        <StackPanel >
-            <message:MessageView></message:MessageView>
-            <message:MessageView></message:MessageView>
-            <message:MessageView></message:MessageView>
-            <message:MessageView></message:MessageView>
-            <message:MessageView></message:MessageView>
-            <message:MessageView></message:MessageView>
-            <message:MessageView></message:MessageView>
-            <message:MessageView></message:MessageView>
-            <message:MessageView></message:MessageView>
-        </StackPanel>
-    </Grid>
+             xmlns:common="clr-namespace:TextReceiver.Views.common"
+             mc:Ignorable="d">
+    <Button Background="Transparent" Command="{Binding ConversationClickedCommand}">
+        <Button.Template>
+            <ControlTemplate TargetType="{x:Type Button}">
+                <Border Margin="1" BorderBrush="White" BorderThickness="0,0,0,1" VerticalAlignment="Top">
+                    <Grid Background="Black" HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <common:Avatar Grid.Column="0"></common:Avatar>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <Label x:Name="ConversationNameLabel" VerticalAlignment="Center" Foreground="White" Content="{Binding Conversation.Name}"></Label>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </ControlTemplate>
+        </Button.Template>
+    </Button>
 </UserControl>

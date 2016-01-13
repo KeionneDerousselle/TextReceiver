@@ -4,7 +4,9 @@ using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using TextReceiver.Contacts;
 using TextReceiver.Conversation;
+using TextReceiver.Conversations;
 using TextReceiver.Models;
+using TextReceiver.SelectedConversation;
 using TextReceiver.TextReceiverMessages;
 
 namespace TextReceiver.ViewModels
@@ -13,7 +15,7 @@ namespace TextReceiver.ViewModels
   {
 
     private IViewModel _currentViewModel;
-    private IViewModel _contactsViewModel;
+    private IViewModel _conversationsViewModel;
     private IViewModel _conversationViewModel;
     private List<IViewModel> _viewModels;
 
@@ -33,16 +35,15 @@ namespace TextReceiver.ViewModels
 
     public ApplicationViewModel()
     {
-      Messenger.Default.Register<ContactSelected>(this, (contactSelectedMessage) =>
+      Messenger.Default.Register<ConversationSelected>(this, (conversationSelectedMessage) =>
       {
-        MessageBox.Show("switch the page");
         ChangeViewModel(_conversationViewModel);
       });
 
-      _contactsViewModel = SimpleIoc.Default.GetInstance<ContactsViewModel>();
-      _conversationViewModel = SimpleIoc.Default.GetInstance<ConversationViewModel>();
+      _conversationsViewModel = SimpleIoc.Default.GetInstance<ConversationsViewModel>();
+      _conversationViewModel = SimpleIoc.Default.GetInstance<SelectedConversationViewModel>();
 
-      ViewModels.Add(_contactsViewModel);
+      ViewModels.Add(_conversationsViewModel);
       ViewModels.Add(_conversationViewModel);
 
       CurrentViewModel = ViewModels[0];
@@ -55,8 +56,6 @@ namespace TextReceiver.ViewModels
         ViewModels.Add(viewModel);
       }
       CurrentViewModel = viewModel;
-
-      MessageBox.Show("new view model selected");
     }
 
   }
