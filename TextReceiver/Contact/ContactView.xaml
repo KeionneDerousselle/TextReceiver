@@ -3,22 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TextReceiver.Views"
              xmlns:components="clr-namespace:TextReceiver.Views.common"
              mc:Ignorable="d">
     <Button Background="Transparent" Command="{Binding ContactClickedCommand}">
         <Button.Template>
             <ControlTemplate TargetType="{x:Type Button}">
-                <Grid Background="Black">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                    </Grid.RowDefinitions>
+                <Grid Background="Black" HorizontalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"></ColumnDefinition>
                         <ColumnDefinition Width="5*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <components:Avatar Grid.Column="0"></components:Avatar>
-                    <Label x:Name="ContactNameLabel" Grid.Column="1" VerticalAlignment="Center" Foreground="White" Content="{Binding Contact.Name}"></Label>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Label x:Name="ContactNameLabel" VerticalAlignment="Center" Foreground="White" Content="{Binding Contact.Name}"></Label>
+                    </StackPanel>
                 </Grid>
             </ControlTemplate>
         </Button.Template>

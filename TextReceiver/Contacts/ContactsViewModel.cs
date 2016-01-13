@@ -18,16 +18,16 @@ namespace TextReceiver.Contacts
     private List<Models.Contact> _contacts = new List<Models.Contact>()
     {
       new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="Keionne Derolle", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="Keionusselle", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="ne Derousselle", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="Kee Derousselle", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="Kene Derousselle", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="Kene Dusselle", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="Keionne Deroule", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="Keionne Deselle", PhoneNumber="3377395608"},
-      new Models.Contact() { Name="Keionne Dsselle", PhoneNumber="3377395608"}
+      new Models.Contact() { Name="Darrius Wright", PhoneNumber="4239335970"},
+      new Models.Contact() { Name="Kassi Chevalier", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Emma Derousselle", PhoneNumber="3377399915"},
+      new Models.Contact() { Name="Kathryn Davis", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Tailar Chevalier", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keri Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Erin Collopy", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Lynus", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Bobby Joe", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Billy Bob", PhoneNumber="3377395608"}
     };
     public ObservableCollection<ContactViewModel> Contacts { get; set; } 
     public Models.Contact SelectedContact { get; set; } 

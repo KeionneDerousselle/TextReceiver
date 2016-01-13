@@ -7,7 +7,12 @@
              mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="450"
              DataContext = "{Binding Source={StaticResource VMLocator}, Path=ContactsViewModel }"
              >
-    <ListBox ItemsSource="{Binding Contacts}">
+    <ListBox ItemsSource="{Binding Contacts}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox.ItemContainerStyle>
+            <Style TargetType="ListBoxItem">
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+            </Style>
+        </ListBox.ItemContainerStyle>
         <ListBox.ItemTemplate>
             <DataTemplate>
                 <contact:ContactView></contact:ContactView>
