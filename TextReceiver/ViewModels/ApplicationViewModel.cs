@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using TextReceiver.Commands;
+using TextReceiver.Contacts;
+using TextReceiver.Conversation;
 using TextReceiver.Models;
 
 namespace TextReceiver.ViewModels

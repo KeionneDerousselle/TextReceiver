@@ -56,14 +56,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Contact\ContactViewModel.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Conversation.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\ObservableObject.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="ViewModels\ApplicationViewModel.cs" />
-    <Compile Include="ViewModels\ContactsViewModel.cs" />
-    <Compile Include="ViewModels\ConversationViewModel.cs" />
+    <Compile Include="Contacts\ContactsViewModel.cs" />
+    <Compile Include="Conversation\ConversationViewModel.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="Views\AppBar.xaml.cs">
       <DependentUpon>AppBar.xaml</DependentUpon>
@@ -71,22 +72,22 @@
     <Compile Include="Views\common\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Contacts\ContactsView.xaml.cs">
+    <Compile Include="Contacts\ContactsView.xaml.cs">
       <DependentUpon>ContactsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Contacts\ContactView.xaml.cs">
+    <Compile Include="Contact\ContactView.xaml.cs">
       <DependentUpon>ContactView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Conversation\ConversationView.xaml.cs">
+    <Compile Include="Conversation\ConversationView.xaml.cs">
       <DependentUpon>ConversationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Message\MessageBarView.xaml.cs">
+    <Compile Include="Message\MessageBarView.xaml.cs">
       <DependentUpon>MessageBarView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Message\MessageView.xaml.cs">
+    <Compile Include="Message\MessageView.xaml.cs">
       <DependentUpon>MessageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Conversation\SelectConversation.xaml.cs">
+    <Compile Include="Conversation\SelectConversation.xaml.cs">
       <DependentUpon>SelectConversation.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
@@ -109,27 +110,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Contacts\ContactsView.xaml">
+    <Page Include="Contacts\ContactsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Contacts\ContactView.xaml">
+    <Page Include="Contact\ContactView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Conversation\ConversationView.xaml">
+    <Page Include="Conversation\ConversationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Message\MessageBarView.xaml">
+    <Page Include="Message\MessageBarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Message\MessageView.xaml">
+    <Page Include="Message\MessageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Conversation\SelectConversation.xaml">
+    <Page Include="Conversation\SelectConversation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

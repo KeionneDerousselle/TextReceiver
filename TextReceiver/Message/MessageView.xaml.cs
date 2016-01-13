@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TextReceiver.Views
+namespace TextReceiver.Message
 {
   /// <summary>
   /// Interaction logic for ConversationView.xaml

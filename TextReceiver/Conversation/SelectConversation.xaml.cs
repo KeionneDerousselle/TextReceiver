@@ -12,18 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TextReceiver.ViewModels;
 
-namespace TextReceiver.Views
+namespace TextReceiver.Conversation
 {
   /// <summary>
-  /// Interaction logic for ConversationView.xaml
+  /// Interaction logic for SelectConversation.xaml
   /// </summary>
-  public partial class ConversationView : UserControl
+  public partial class SelectConversation : UserControl
   {
-    public ConversationView()
+    public SelectConversation()
     {
-      DataContext = new ConversationViewModel();
       InitializeComponent();
     }
   }

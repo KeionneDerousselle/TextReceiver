@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TextReceiver.ViewModels;
 
-namespace TextReceiver.Views
+namespace TextReceiver.Contacts
 {
   /// <summary>
   /// Interaction logic for ContactsView.xaml

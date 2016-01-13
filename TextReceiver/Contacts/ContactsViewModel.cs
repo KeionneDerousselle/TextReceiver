@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using TextReceiver.Commands;
+using TextReceiver.ViewModels;
 
-namespace TextReceiver.ViewModels
+namespace TextReceiver.Contacts
 {
   public class ContactsViewModel : IViewModel
   {
@@ -30,7 +31,7 @@ namespace TextReceiver.ViewModels
     }
     private void On_Contact_Selected(object sender)
     {
-      Console.WriteLine("was caught here");
+      MessageBox.Show("contact was selected");
       ContactSelected?.Invoke(sender);
     }
   }

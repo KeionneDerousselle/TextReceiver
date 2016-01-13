@@ -13,27 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TextReceiver.Views
+namespace TextReceiver.Contact
 {
   /// <summary>
   /// Interaction logic for ContactView.xaml
   /// </summary>
   public partial class ContactView : UserControl
   {
-    public static DependencyProperty ContactClickedCommandProperty = DependencyProperty.Register("ContactClickedCommand", typeof(ICommand), typeof(ContactView));
-    public ICommand ContactClickedCommand {
-      get { return (ICommand) GetValue(ContactClickedCommandProperty); }
-      set { SetValue(ContactClickedCommandProperty, value);}
-    }
-
     public ContactView()
     {
+      this.DataContext = new ContactViewModel();
       InitializeComponent();
-    }
-
-    private void On_Contact_Click(object sender, RoutedEventArgs routedEventArgs)
-    { 
-      ContactClickedCommand.Execute(sender);
     }
   }
 }

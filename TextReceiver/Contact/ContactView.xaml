@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TextReceiver.Views.ContactView"
+﻿<UserControl x:Class="TextReceiver.Contact.ContactView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TextReceiver.Views"
              xmlns:components="clr-namespace:TextReceiver.Views.common"
              mc:Ignorable="d">
-    <Button Background="Transparent" Click="On_Contact_Click">
+    <Button Background="Transparent" Command="{Binding ContactClickedCommand}">
         <Button.Template>
             <ControlTemplate TargetType="{x:Type Button}">
                 <StackPanel Orientation="Horizontal" Background="Black">

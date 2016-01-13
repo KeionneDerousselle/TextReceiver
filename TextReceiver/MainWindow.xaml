@@ -3,16 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:components="clr-namespace:TextReceiver.Views"
-        xmlns:local="clr-namespace:TextReceiver.ViewModels"
+        xmlns:views="clr-namespace:TextReceiver.Views"
+        xmlns:conversation="clr-namespace:TextReceiver.Conversation"
+        xmlns:contacts="clr-namespace:TextReceiver.Contacts"
+        xmlns:message="clr-namespace:TextReceiver.Message"
         mc:Ignorable="d"
         Title="Text Receiver" Height="550" Width="450" ResizeMode="CanMinimize">
     <Window.Resources>
-        <DataTemplate DataType="{x:Type local:ConversationViewModel}">
-            <components:ConversationView></components:ConversationView>
+        <DataTemplate DataType="{x:Type conversation:ConversationViewModel}">
+            <conversation:ConversationView></conversation:ConversationView>
         </DataTemplate>
-        <DataTemplate DataType="{x:Type local:ContactsViewModel}">
-            <components:ContactsView></components:ContactsView>
+        <DataTemplate DataType="{x:Type contacts:ContactsViewModel}">
+            <contacts:ContactsView></contacts:ContactsView>
         </DataTemplate>
     </Window.Resources>
     <Grid>
@@ -21,10 +23,10 @@
             <RowDefinition Height="7*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <components:AppBar Grid.Row="0"></components:AppBar>
+        <views:AppBar Grid.Row="0"></views:AppBar>
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <ContentControl x:Name="ContentArea" Content="{Binding CurrentViewModel}"></ContentControl>
         </ScrollViewer>
-        <components:MessageBarView Grid.Row="2" ></components:MessageBarView>
+        <message:MessageBarView Grid.Row="2" ></message:MessageBarView>
     </Grid>
 </Window>

@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TextReceiver.Views
+namespace TextReceiver.Message
 {
   /// <summary>
-  /// Interaction logic for SelectConversation.xaml
+  /// Interaction logic for MessageBarView.xaml
   /// </summary>
-  public partial class SelectConversation : UserControl
+  public partial class MessageBarView : UserControl
   {
-    public SelectConversation()
+    public MessageBarView()
     {
       InitializeComponent();
     }
