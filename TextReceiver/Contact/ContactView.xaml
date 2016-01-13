@@ -10,11 +10,17 @@
     <Button Background="Transparent" Command="{Binding ContactClickedCommand}">
         <Button.Template>
             <ControlTemplate TargetType="{x:Type Button}">
-                <StackPanel Orientation="Horizontal" Background="Black">
-                    <components:Avatar></components:Avatar>
-                    <Label Foreground="White">Keionne Derousselle</Label>
-                    <Ellipse Fill="LightGreen" Width="20" Height="20"></Ellipse>
-                </StackPanel>
+                <Grid Background="Black">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <components:Avatar Grid.Column="0"></components:Avatar>
+                    <Label x:Name="ContactNameLabel" Grid.Column="1" VerticalAlignment="Center" Foreground="White" Content="{Binding Contact.Name}"></Label>
+                </Grid>
             </ControlTemplate>
         </Button.Template>
     </Button>

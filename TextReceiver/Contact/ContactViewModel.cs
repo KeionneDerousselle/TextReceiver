@@ -1,20 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using TextReceiver.Commands;
 using TextReceiver.TextReceiverMessages;
 using TextReceiver.ViewModels;
+using TextReceiver.Models;
 
 namespace TextReceiver.Contact
 {
   public class ContactViewModel : IViewModel
   {
     private ICommand _contactClicked;
+    public Models.Contact Contact { get; set; }
     public ICommand ContactClickedCommand
     {
       get
@@ -28,12 +26,16 @@ namespace TextReceiver.Contact
       set { _contactClicked = value; }
     }
 
+    public ContactViewModel()
+    {
+    }
+
     private void On_Contact_Clicked(object sender)
     {
       MessageBox.Show("contact was clicked");
       Messenger.Default.Send(new ContactClicked()
       {
-        ContactId = Guid.NewGuid()
+        ContactId = Contact.ContactId
       });
     }
   }

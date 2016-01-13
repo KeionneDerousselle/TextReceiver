@@ -7,17 +7,11 @@
              mc:Ignorable="d" d:DesignHeight="400" d:DesignWidth="450"
              DataContext = "{Binding Source={StaticResource VMLocator}, Path=ContactsViewModel }"
              >
-    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-        <StackPanel >
-            <contact:ContactView></contact:ContactView>
-            <contact:ContactView></contact:ContactView>
-            <contact:ContactView></contact:ContactView>
-            <contact:ContactView></contact:ContactView>
-            <contact:ContactView></contact:ContactView>
-            <contact:ContactView></contact:ContactView>
-            <contact:ContactView></contact:ContactView>
-            <contact:ContactView></contact:ContactView>
-            <contact:ContactView></contact:ContactView>
-        </StackPanel>
-    </ScrollViewer>
+    <ListBox ItemsSource="{Binding Contacts}">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <contact:ContactView></contact:ContactView>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
 </UserControl>

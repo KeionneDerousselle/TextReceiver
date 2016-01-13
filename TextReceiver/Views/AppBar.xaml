@@ -20,7 +20,5 @@
                 </ContextMenu>
             </Button.ContextMenu>
         </Button>
-        <Button>Conversations</Button>
-        <Button>Contacts</Button>
     </StackPanel>
 </UserControl>

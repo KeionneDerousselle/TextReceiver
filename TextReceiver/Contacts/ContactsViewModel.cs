@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,25 @@ namespace TextReceiver.Contacts
 {
   public class ContactsViewModel : IViewModel
   {
+    private List<Models.Contact> _contacts = new List<Models.Contact>()
+    {
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"},
+      new Models.Contact() { Name="Keionne Derousselle", PhoneNumber="3377395608"}
+    };
+    public ObservableCollection<Models.Contact> Contacts { get; set; } 
+    public Models.Contact SelectedContact { get; set; } 
     public ContactsViewModel()
     {
+      Contacts = new ObservableCollection<Models.Contact>(_contacts);
       Messenger.Default.Register<ContactClicked>(this, (contactClickedMessage) => {
         OnContactSelected(contactClickedMessage.ContactId);
       });
