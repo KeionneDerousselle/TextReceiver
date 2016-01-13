@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
 using TextReceiver.Commands;
 using TextReceiver.Contacts;
 using TextReceiver.Conversation;
 using TextReceiver.Models;
+using TextReceiver.TextReceiverMessages;
 
 namespace TextReceiver.ViewModels
 {
@@ -55,12 +58,18 @@ namespace TextReceiver.ViewModels
 
     public ApplicationViewModel()
     {
-      ViewModels.Add(new ConversationViewModel());
       var contactsViewModel = new ContactsViewModel();
-      contactsViewModel.ContactSelected += ContactSelected;
-      ViewModels.Add(contactsViewModel);
+      var conversationViewModel = new ConversationViewModel();
 
-      CurrentViewModel = ViewModels[1];
+      Messenger.Default.Register<ContactSelected>(this, (contactSelectedMessage) =>
+      {
+        ChangeViewModel(conversationViewModel);
+      });
+
+      ViewModels.Add(contactsViewModel);
+      ViewModels.Add(conversationViewModel);
+
+      CurrentViewModel = ViewModels[0];
     }
 
     private void ChangeViewModel(IViewModel viewModel)
@@ -70,11 +79,9 @@ namespace TextReceiver.ViewModels
         ViewModels.Add(viewModel);
       }
       CurrentViewModel = viewModel;
+
+      MessageBox.Show("new view model selected");
     }
 
-    private void ContactSelected(object sender)
-    {
-      Console.WriteLine("a contact was selected");
-    }
   }
 }

@@ -62,6 +62,8 @@
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\ObservableObject.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="TextReceiverMessages\ContactClicked.cs" />
+    <Compile Include="TextReceiverMessages\ContactSelected.cs" />
     <Compile Include="ViewModels\ApplicationViewModel.cs" />
     <Compile Include="Contacts\ContactsViewModel.cs" />
     <Compile Include="Conversation\ConversationViewModel.cs" />

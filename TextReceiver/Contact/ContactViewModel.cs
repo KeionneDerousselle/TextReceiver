@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
 using TextReceiver.Commands;
+using TextReceiver.TextReceiverMessages;
 using TextReceiver.ViewModels;
 
 namespace TextReceiver.Contact
@@ -29,6 +31,10 @@ namespace TextReceiver.Contact
     private void On_Contact_Clicked(object sender)
     {
       MessageBox.Show("contact was clicked");
+      Messenger.Default.Send<ContactClicked>(new ContactClicked()
+      {
+        ContactId = Guid.NewGuid()
+      });
     }
   }
 }
