@@ -7,13 +7,15 @@
              xmlns:components="clr-namespace:TextReceiver.Views.common"
              mc:Ignorable="d">
     <Button Background="Transparent" Click="On_Contact_Click">
-        <Button.Content>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Black">
-                <components:Avatar></components:Avatar>
-                <Label Foreground="White">Keionne Derousselle</Label>
-                <Ellipse Fill="LightGreen" Width="20" Height="20"></Ellipse>
-            </StackPanel>
-        </Button.Content>
+        <Button.Template>
+            <ControlTemplate TargetType="{x:Type Button}">
+                <StackPanel Orientation="Horizontal" Background="Black">
+                    <components:Avatar></components:Avatar>
+                    <Label Foreground="White">Keionne Derousselle</Label>
+                    <Ellipse Fill="LightGreen" Width="20" Height="20"></Ellipse>
+                </StackPanel>
+            </ControlTemplate>
+        </Button.Template>
     </Button>
 
 </UserControl>
