@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Input;
+using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
-using TextReceiver.Commands;
 using TextReceiver.Contacts;
 using TextReceiver.Conversation;
 using TextReceiver.Models;
@@ -16,21 +11,11 @@ namespace TextReceiver.ViewModels
 {
   public class ApplicationViewModel : ObservableObject, IViewModel
   {
-    private ICommand _changePageCommand;
 
     private IViewModel _currentViewModel;
+    private IViewModel _contactsViewModel;
+    private IViewModel _conversationViewModel;
     private List<IViewModel> _viewModels;
-
-    public ICommand ChangePageCommand {
-      get
-      {
-        if (_changePageCommand == null)
-        {
-          _changePageCommand = new RelayCommand(p => ChangeViewModel((IViewModel) p), p => p is IViewModel);
-        }
-        return _changePageCommand;
-      }
-    }
 
     public IViewModel CurrentViewModel
     {
@@ -44,30 +29,21 @@ namespace TextReceiver.ViewModels
         }
       }
     }
-    public List<IViewModel> ViewModels
-    {
-      get
-      {
-        if (_viewModels == null)
-        {
-          _viewModels = new List<IViewModel>();
-        }
-        return _viewModels;
-      }
-    }
+    public List<IViewModel> ViewModels => _viewModels ?? (_viewModels = new List<IViewModel>());
 
     public ApplicationViewModel()
     {
-      var contactsViewModel = new ContactsViewModel();
-      var conversationViewModel = new ConversationViewModel();
-
       Messenger.Default.Register<ContactSelected>(this, (contactSelectedMessage) =>
       {
-        ChangeViewModel(conversationViewModel);
+        MessageBox.Show("switch the page");
+        ChangeViewModel(_conversationViewModel);
       });
 
-      ViewModels.Add(contactsViewModel);
-      ViewModels.Add(conversationViewModel);
+      _contactsViewModel = SimpleIoc.Default.GetInstance<ContactsViewModel>();
+      _conversationViewModel = SimpleIoc.Default.GetInstance<ConversationViewModel>();
+
+      ViewModels.Add(_contactsViewModel);
+      ViewModels.Add(_conversationViewModel);
 
       CurrentViewModel = ViewModels[0];
     }

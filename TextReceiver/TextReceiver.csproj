@@ -56,6 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Common\ViewModelLocator.cs" />
     <Compile Include="Contact\ContactViewModel.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Conversation.cs" />

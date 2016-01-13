@@ -9,7 +9,6 @@ namespace TextReceiver.Contacts
   {
     public ContactsView()
     {
-      DataContext = new ContactsViewModel();
       InitializeComponent();
     }
   }

@@ -6,10 +6,12 @@
              xmlns:conversation="clr-namespace:TextReceiver.Conversation"
              xmlns:message="clr-namespace:TextReceiver.Message"
              mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="450">
-    <UserControl.DataContext>
+             d:DesignHeight="550" d:DesignWidth="450"
+             DataContext = "{Binding Source={StaticResource VMLocator}, Path=ConversationViewModel }"
+             >
+    <!--<UserControl.DataContext>
         <conversation:ConversationViewModel></conversation:ConversationViewModel>
-    </UserControl.DataContext>
+    </UserControl.DataContext>-->
     <Grid>
         <StackPanel >
             <message:MessageView></message:MessageView>

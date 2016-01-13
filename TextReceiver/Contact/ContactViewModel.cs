@@ -31,7 +31,7 @@ namespace TextReceiver.Contact
     private void On_Contact_Clicked(object sender)
     {
       MessageBox.Show("contact was clicked");
-      Messenger.Default.Send<ContactClicked>(new ContactClicked()
+      Messenger.Default.Send(new ContactClicked()
       {
         ContactId = Guid.NewGuid()
       });

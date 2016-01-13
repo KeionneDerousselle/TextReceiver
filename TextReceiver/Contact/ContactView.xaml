@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TextReceiver.Views"
              xmlns:components="clr-namespace:TextReceiver.Views.common"
+             DataContext = "{Binding Source={StaticResource VMLocator}, Path=ContactViewModel }"
              mc:Ignorable="d">
     <Button Background="Transparent" Command="{Binding ContactClickedCommand}">
         <Button.Template>
