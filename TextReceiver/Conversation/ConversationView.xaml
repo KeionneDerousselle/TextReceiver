@@ -12,7 +12,11 @@
             controls:ButtonHelper.PreserveTextCase="False">
         <Button.Template>
             <ControlTemplate TargetType="{x:Type Button}">
-                <Border Margin="1" BorderBrush="White" BorderThickness="0,0,0,1" VerticalAlignment="Top">
+                <Border 
+                    Margin="1" 
+                    BorderBrush="White" 
+                    BorderThickness="0,0,0,1" 
+                    VerticalAlignment="Top">
                     <Grid HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"></ColumnDefinition>

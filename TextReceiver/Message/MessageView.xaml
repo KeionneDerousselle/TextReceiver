@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:components="clr-namespace:TextReceiver.Views.common"
              mc:Ignorable="d" 
-              d:DesignWidth="300" Background="White">
-        <Border Margin="1" BorderBrush="Black" BorderThickness="0,0,0,1" VerticalAlignment="Top">
+              d:DesignWidth="300">
+        <Border Margin="1" BorderBrush="White" BorderThickness="0,0,0,1" VerticalAlignment="Top">
         <StackPanel Orientation="Horizontal" Width="300">
             <StackPanel 
                 VerticalAlignment="Top" 
@@ -16,7 +16,7 @@
                     Orientation="Vertical"
                     Width="255">
                     <Label Content="{Binding Message.Sender.Name}"></Label>
-                    <TextBlock  TextWrapping="Wrap" Text="{Binding Message.Content}"></TextBlock>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Message.Content}"></TextBlock>
                 </StackPanel>
             </StackPanel>
         </StackPanel>

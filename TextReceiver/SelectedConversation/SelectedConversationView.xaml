@@ -3,22 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:conversation="clr-namespace:TextReceiver.Conversation"
              xmlns:message="clr-namespace:TextReceiver.Message"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="450"
              DataContext = "{Binding Source={StaticResource VMLocator}, Path=ConversationViewModel }"
              >
-    <ListBox ItemsSource="{Binding Messages}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-        <ListBox.ItemContainerStyle>
-            <Style TargetType="ListBoxItem">
-                <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-            </Style>
-        </ListBox.ItemContainerStyle>
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <message:MessageView></message:MessageView>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <ListBox ItemsSource="{Binding Messages}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <message:MessageView></message:MessageView>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <message:MessageBarView Grid.Row="1"></message:MessageBarView>
+    </Grid>
 </UserControl>

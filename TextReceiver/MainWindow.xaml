@@ -3,51 +3,56 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:TextReceiver.Views"
         xmlns:conversations="clr-namespace:TextReceiver.Conversations"
         xmlns:selectedConversation="clr-namespace:TextReceiver.SelectedConversation"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        xmlns:message="clr-namespace:TextReceiver.Message"
         mc:Ignorable="d"
         Title="Text Receiver" 
         Height="550" 
         Width="450" 
         ResizeMode="CanMinimize"
         GlowBrush="{DynamicResource AccentColorBrush}"
-        Icon="/Resources/mobile-phone-icon.png"
+        Icon="/Resources/mobile-message.png"
         DataContext = "{Binding Source={StaticResource VMLocator}, Path=ApplicationViewModel }">
+
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
-            <Button x:Name="userMenu" 
-                    HorizontalAlignment="Right" 
-                    ContextMenuService.IsEnabled="false"  
-                    Width="40" 
-                    Command="{Binding UserMenuClickedCommand}"
-                    CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
-                    BorderThickness="0"
-                    Content="{Binding UserMenuIsOpen}">
-                <!--<Button.Content>
-                    <Image Source="../Content/Images/cat-scared.jpg"></Image>
-                </Button.Content>-->
-                <Button.ContextMenu>
-                    <ContextMenu
-                        IsOpen="{Binding UserMenuIsOpen}"
-                        Placement="Bottom"
-                        IsEnabled="{Binding UserMenuIsOpen}"
-                        PlacementTarget="{Binding ElementName=userMenu}">
-                        <MenuItem Header="Available"></MenuItem>
-                        <MenuItem Header="Unavailable"></MenuItem>
-                        <MenuItem Header="Do Not Disturb"></MenuItem>
-                    </ContextMenu>
-                </Button.ContextMenu>
+            <Button Width="20" Height="20">
+                <Rectangle 
+                    Width="15"
+                    Height="15"
+                Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                    <Rectangle.OpacityMask>
+                        <VisualBrush 
+                        Stretch="Fill"
+                        Visual="{DynamicResource appbar_edit_box}">
+                        </VisualBrush>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
             </Button>
+            <Menu>
+                <MenuItem>
+                    <MenuItem.Header>
+                        <Rectangle 
+                            Width="15"
+                            Height="15"
+                            Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Menu}}}">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush 
+                                    Stretch="Fill"
+                                    Visual="{DynamicResource appbar_user}">
+                                </VisualBrush>
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+                    </MenuItem.Header>
+                    <MenuItem Header="Available"></MenuItem>
+                    <MenuItem Header="Unavailable"></MenuItem>
+                    <MenuItem Header="Do Not Disturb"></MenuItem>
+                </MenuItem>
+            </Menu>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-    <!--<Controls:MetroWindow.IconTemplate>
-        <DataTemplate>
-            
-        </DataTemplate>
-    </Controls:MetroWindow.IconTemplate>-->
+
     <Window.Resources>
         <DataTemplate DataType="{x:Type conversations:ConversationsViewModel}">
             <conversations:ConversationsView></conversations:ConversationsView>

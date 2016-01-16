@@ -48,6 +48,9 @@
     <Resource Include="Resources\mobile-phone-icon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\mobile-message.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Resources\WindowsIcons-license.txt">
       <Paket>True</Paket>
     </Content>
@@ -100,9 +103,6 @@
     <Compile Include="Contacts\ContactsViewModel.cs" />
     <Compile Include="SelectedConversation\SelectedConversationViewModel.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
-    <Compile Include="Views\AppBar.xaml.cs">
-      <DependentUpon>AppBar.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\common\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>
     </Compile>
@@ -144,10 +144,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\AppBar.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\common\Avatar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

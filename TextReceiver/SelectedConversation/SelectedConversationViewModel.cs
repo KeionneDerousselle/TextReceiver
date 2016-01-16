@@ -2,11 +2,12 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using TextReceiver.Message;
+using TextReceiver.Models;
 using TextReceiver.ViewModels;
 
 namespace TextReceiver.SelectedConversation
 {
-  public class SelectedConversationViewModel : IViewModel
+  public class SelectedConversationViewModel : ObservableObject, IViewModel
   {
     private Models.Conversation _conversation;
     private List<Models.Message> _messages; 
@@ -28,7 +29,9 @@ namespace TextReceiver.SelectedConversation
     public Models.Conversation Conversation
     {
       get { return _conversation; }
-      set { _conversation = value; }
+      set { _conversation = value;
+        OnPropertyChanged("Conversation");
+      }
     }
     public ObservableCollection<MessageViewModel> Messages { get; set; }
 
