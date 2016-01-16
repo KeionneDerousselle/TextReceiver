@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:components="clr-namespace:TextReceiver.Views.common"
              mc:Ignorable="d">
-    <Button Background="Transparent" Command="{Binding ContactClickedCommand}">
+    <Button Background="Transparent" Command="{Binding ContactClickedCommand}" Style="{DynamicResource SquareButtonStyle}">
         <Button.Template>
             <ControlTemplate TargetType="{x:Type Button}">
                 <Grid Background="Black" HorizontalAlignment="Stretch">

@@ -4,12 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:common="clr-namespace:TextReceiver.Views.common"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d">
-    <Button Background="Transparent" Command="{Binding ConversationClickedCommand}">
+    <Button Background="Transparent" 
+            Command="{Binding ConversationClickedCommand}" 
+            Style="{DynamicResource SquareButtonStyle}" 
+            controls:ButtonHelper.PreserveTextCase="False">
         <Button.Template>
             <ControlTemplate TargetType="{x:Type Button}">
                 <Border Margin="1" BorderBrush="White" BorderThickness="0,0,0,1" VerticalAlignment="Top">
-                    <Grid Background="Black" HorizontalAlignment="Stretch">
+                    <Grid HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*"></ColumnDefinition>
                             <ColumnDefinition Width="5*"></ColumnDefinition>

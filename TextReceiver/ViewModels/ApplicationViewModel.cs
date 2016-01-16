@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Input;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
-using TextReceiver.Contacts;
-using TextReceiver.Conversation;
+using TextReceiver.Commands;
 using TextReceiver.Conversations;
 using TextReceiver.Models;
 using TextReceiver.SelectedConversation;
@@ -13,6 +13,8 @@ namespace TextReceiver.ViewModels
 {
   public class ApplicationViewModel : ObservableObject, IViewModel
   {
+    private ICommand _userMenuClickedCommand;
+    private bool _userMenuIsOpen;
 
     private IViewModel _currentViewModel;
     private IViewModel _conversationsViewModel;
@@ -32,6 +34,27 @@ namespace TextReceiver.ViewModels
       }
     }
     public List<IViewModel> ViewModels => _viewModels ?? (_viewModels = new List<IViewModel>());
+
+    public ICommand UserMenuClickedCommand
+    {
+      get
+      {
+        if (_userMenuClickedCommand == null)
+        { _userMenuClickedCommand = new RelayCommand(ToggleUserMenu); }
+        return _userMenuClickedCommand;
+      }
+      set { _userMenuClickedCommand = value; }
+    }
+
+    public bool UserMenuIsOpen
+    {
+      get { return _userMenuIsOpen; }
+      set
+      {
+        _userMenuIsOpen = value;
+        OnPropertyChanged("UserMenuIsOpen");
+      }
+    }
 
     public ApplicationViewModel()
     {
@@ -56,6 +79,19 @@ namespace TextReceiver.ViewModels
         ViewModels.Add(viewModel);
       }
       CurrentViewModel = viewModel;
+    }
+
+    private void ToggleUserMenu(object obj)
+    {
+      //bool currentlyOpen = userMenuButton.ContextMenu.IsOpen;
+      //userMenuButton.ContextMenu.IsEnabled = !currentlyOpen;
+      //if (!currentlyOpen)
+      //{
+      //  userMenuButton.ContextMenu.PlacementTarget = userMenuButton;
+      //  userMenuButton.ContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+      //}
+      //userMenuButton.ContextMenu.IsOpen = !currentlyOpen;
+      UserMenuIsOpen = !UserMenuIsOpen;
     }
 
   }

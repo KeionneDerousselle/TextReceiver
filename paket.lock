@@ -5,6 +5,9 @@ NUGET
     FirebaseSharp (1.0.0.5)
       Microsoft.Net.Http (>= 2.2.29)
       Newtonsoft.Json (>= 6.0.8)
+    MahApps.Metro (1.2.2)
+    MahApps.Metro.Resources (0.4.0)
+      MahApps.Metro (>= 1.0.0)
     Microsoft.Bcl (1.1.10)
       Microsoft.Bcl.Build (>= 1.0.14)
     Microsoft.Bcl.Build (1.0.21) - import_targets: false

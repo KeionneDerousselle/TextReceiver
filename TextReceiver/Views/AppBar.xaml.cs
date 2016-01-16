@@ -38,7 +38,7 @@ namespace TextReceiver.Views
       userMenuButton.ContextMenu.IsEnabled = !currentlyOpen;
       if (!currentlyOpen)
       {
-        userMenuButton.ContextMenu.PlacementTarget = userMenuButton;
+       // userMenuButton.ContextMenu.PlacementTarget = userMenuButton;
         userMenuButton.ContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
       }
       userMenuButton.ContextMenu.IsOpen = !currentlyOpen;

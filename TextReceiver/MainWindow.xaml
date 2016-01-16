@@ -1,4 +1,4 @@
-﻿<Window x:Class="TextReceiver.MainWindow"
+﻿<Controls:MetroWindow x:Class="TextReceiver.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,12 +6,48 @@
         xmlns:views="clr-namespace:TextReceiver.Views"
         xmlns:conversations="clr-namespace:TextReceiver.Conversations"
         xmlns:selectedConversation="clr-namespace:TextReceiver.SelectedConversation"
-        xmlns:contacts="clr-namespace:TextReceiver.Contacts"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:message="clr-namespace:TextReceiver.Message"
         mc:Ignorable="d"
-        Title="Text Receiver" Height="550" Width="450" ResizeMode="CanMinimize"
+        Title="Text Receiver" 
+        Height="550" 
+        Width="450" 
+        ResizeMode="CanMinimize"
+        GlowBrush="{DynamicResource AccentColorBrush}"
+        Icon="/Resources/mobile-phone-icon.png"
         DataContext = "{Binding Source={StaticResource VMLocator}, Path=ApplicationViewModel }">
-    
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="userMenu" 
+                    HorizontalAlignment="Right" 
+                    ContextMenuService.IsEnabled="false"  
+                    Width="40" 
+                    Command="{Binding UserMenuClickedCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Self}}"
+                    BorderThickness="0"
+                    Content="{Binding UserMenuIsOpen}">
+                <!--<Button.Content>
+                    <Image Source="../Content/Images/cat-scared.jpg"></Image>
+                </Button.Content>-->
+                <Button.ContextMenu>
+                    <ContextMenu
+                        IsOpen="{Binding UserMenuIsOpen}"
+                        Placement="Bottom"
+                        IsEnabled="{Binding UserMenuIsOpen}"
+                        PlacementTarget="{Binding ElementName=userMenu}">
+                        <MenuItem Header="Available"></MenuItem>
+                        <MenuItem Header="Unavailable"></MenuItem>
+                        <MenuItem Header="Do Not Disturb"></MenuItem>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <!--<Controls:MetroWindow.IconTemplate>
+        <DataTemplate>
+            
+        </DataTemplate>
+    </Controls:MetroWindow.IconTemplate>-->
     <Window.Resources>
         <DataTemplate DataType="{x:Type conversations:ConversationsViewModel}">
             <conversations:ConversationsView></conversations:ConversationsView>
@@ -20,16 +56,7 @@
             <selectedConversation:SelectedConversationView></selectedConversation:SelectedConversationView>
         </DataTemplate>
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="7*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <views:AppBar Grid.Row="0"></views:AppBar>
-         <StackPanel Grid.Row="1" Background="Black">
-             <ContentControl x:Name="ContentArea" Content="{Binding CurrentViewModel}"></ContentControl>
-         </StackPanel>
-        <message:MessageBarView Grid.Row="2" ></message:MessageBarView>
-    </Grid>
-</Window>
+    <StackPanel>
+        <Controls:TransitioningContentControl x:Name="ContentArea"  Content="{Binding CurrentViewModel}" Transition="Right" />
+    </StackPanel>
+</Controls:MetroWindow>

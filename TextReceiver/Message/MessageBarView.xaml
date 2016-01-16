@@ -5,9 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TextReceiver.Views"
              mc:Ignorable="d" 
-             d:DesignWidth="450" Background="Black">
+             d:DesignWidth="450" >
+    <Border BorderBrush="White" BorderThickness="0,1,0,0">
     <StackPanel Orientation="Horizontal" Margin="10">
-        <TextBox Width="355" Margin="0,0,10,0" TextWrapping="Wrap" ></TextBox>
-        <Button Width="40"></Button>
+        <TextBox Width="395"  Margin="0,0,5,0" TextWrapping="Wrap" ></TextBox>
+        <Button Width="30" Height="30" Style="{DynamicResource MetroCircleButtonStyle}">
+            <Rectangle 
+                Width="20"
+                Height="20"
+                Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                <Rectangle.OpacityMask>
+                    <VisualBrush 
+                        Stretch="Fill"
+                        Visual="{DynamicResource appbar_add}">
+                    </VisualBrush>
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
     </StackPanel>
+    </Border>
 </UserControl>
