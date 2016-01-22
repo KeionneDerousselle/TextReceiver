@@ -8,25 +8,18 @@
              mc:Ignorable="d">
     <Button Background="Transparent" 
             Command="{Binding ConversationClickedCommand}" 
-            Style="{DynamicResource SquareButtonStyle}" 
-            controls:ButtonHelper.PreserveTextCase="False">
+            Style="{DynamicResource SquareButtonStyle}">
         <Button.Template>
             <ControlTemplate TargetType="{x:Type Button}">
                 <Border 
                     Margin="1" 
-                    BorderBrush="White" 
+                    BorderBrush="{DynamicResource AccentColorBrush}" 
                     BorderThickness="0,0,0,1" 
                     VerticalAlignment="Top">
-                    <Grid HorizontalAlignment="Stretch">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                            <ColumnDefinition Width="5*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <common:Avatar Grid.Column="0"></common:Avatar>
-                        <StackPanel Grid.Column="1" Orientation="Horizontal">
-                            <Label x:Name="ConversationNameLabel" VerticalAlignment="Center" Foreground="White" Content="{Binding Conversation.Name}"></Label>
-                        </StackPanel>
-                    </Grid>
+                    <StackPanel Orientation="Horizontal">
+                        <common:Avatar></common:Avatar>
+                        <Label x:Name="ConversationNameLabel" VerticalAlignment="Center" Foreground="{DynamicResource AccentColorBrush}" Content="{Binding Conversation.Name}"></Label>
+                    </StackPanel>
                 </Border>
             </ControlTemplate>
         </Button.Template>

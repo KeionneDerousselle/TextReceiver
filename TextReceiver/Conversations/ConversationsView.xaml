@@ -10,6 +10,19 @@
     <ListBox ItemsSource="{Binding Conversations}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
         <ListBox.ItemContainerStyle>
             <Style TargetType="ListBoxItem">
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Foreground" Value="Black"></Setter>
+                        <Setter Property="Background" Value="{DynamicResource AccentColorBrush}"></Setter>
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="Black"></Setter>
+                        <Setter Property="Background" Value="{DynamicResource AccentColorBrush}"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+                <Style.Resources>
+                    <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"></SolidColorBrush>
+                </Style.Resources>
                 <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
             </Style>
         </ListBox.ItemContainerStyle>
