@@ -13,10 +13,12 @@ namespace TextReceiver.Conversations
     public class ConversationsViewModel : IViewModel
     {
         private IEnumerable<Models.Conversation> _conversations;
+        private IConversationRepository _convoRepo;
         public ObservableCollection<ConversationViewModel> Conversations { get; set; }
 
-        public ConversationsViewModel()
+        public ConversationsViewModel(IConversationRepository convoRepo)
         {
+            _convoRepo = convoRepo;
             Conversations = new ObservableCollection<ConversationViewModel>();
 
             Messenger.Default.Register<ConversationClicked>(this, (conversationClickedMessage) =>
@@ -29,8 +31,7 @@ namespace TextReceiver.Conversations
 
         private async void GetAllConversations()
         {
-            ConversationRepository convoRepo = new ConversationRepository();
-            _conversations = await convoRepo.GetAllConversations();
+            _conversations = await _convoRepo.GetAllConversations();
             if (_conversations.Any())
             {
                 OnConversationSelected(_conversations.First().ConversationId);

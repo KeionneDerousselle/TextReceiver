@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.Unity;
+﻿using System.Configuration;
+using FirebaseSharp.Portable;
+using Microsoft.Practices.Unity;
 using TextReceiver.Repositories;
 
 namespace TextReceiver.Common
@@ -12,6 +14,14 @@ namespace TextReceiver.Common
             _container = new UnityContainer();
             _container.RegisterType<IConversationRepository, ConversationRepository>(
                 new ContainerControlledLifetimeManager());
+
+            _container.RegisterType<Firebase>(
+                new InjectionConstructor
+                (
+                    ConfigurationManager.AppSettings["FirebaseConnectionString"],
+                    string.Empty
+                 )
+             );
         }
 
         public static IUnityContainer Container { get { return _container; } }

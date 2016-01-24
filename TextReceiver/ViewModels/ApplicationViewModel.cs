@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
-using GalaSoft.MvvmLight.Ioc;
+using Microsoft.Practices.Unity;
 using TextReceiver.Commands;
+using TextReceiver.Common;
 using TextReceiver.Conversations;
 using TextReceiver.Models;
 using TextReceiver.SelectedConversation;
@@ -63,14 +64,13 @@ namespace TextReceiver.ViewModels
 
         public ApplicationViewModel()
         {
-            _currentNavModel = SimpleIoc.Default.GetInstance<ConversationsViewModel>();
-            _currentContentModel = SimpleIoc.Default.GetInstance<SelectedConversationViewModel>();
+            _currentNavModel = UnityIocContainer.Container.Resolve<ConversationsViewModel>();
+            _currentContentModel = UnityIocContainer.Container.Resolve<SelectedConversationViewModel>();
         }
 
         private void ToggleUserMenu(object obj)
         {
             UserMenuIsOpen = !UserMenuIsOpen;
         }
-
     }
 }

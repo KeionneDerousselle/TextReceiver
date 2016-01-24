@@ -13,6 +13,7 @@ namespace TextReceiver.SelectedConversation
     {
         private Models.Conversation _conversation;
         private List<Models.Message> _messages;
+        private IConversationRepository _convoRepo;
 
         public Models.Conversation Conversation
         {
@@ -33,16 +34,16 @@ namespace TextReceiver.SelectedConversation
         }
         public ObservableCollection<MessageViewModel> Messages { get; set; }
 
-        public SelectedConversationViewModel()
+        public SelectedConversationViewModel(IConversationRepository convoRepo)
         {
+            _convoRepo = convoRepo;
             Messages = new ObservableCollection<MessageViewModel>();
             Messenger.Default.Register<ConversationSelected>(this, ChangeSelectedConversation);
         }
 
         private async void ChangeSelectedConversation(ConversationSelected conversationSelectedMessage)
         {
-            ConversationRepository convoRepo = new ConversationRepository();
-            Conversation = await convoRepo.GetConversationById(conversationSelectedMessage.ConversationId);      
+            Conversation = await _convoRepo.GetConversationById(conversationSelectedMessage.ConversationId);      
         }
     }
 }

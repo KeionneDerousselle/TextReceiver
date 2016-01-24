@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:message="clr-namespace:TextReceiver.Message"
              mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="450"
-             DataContext = "{Binding Source={StaticResource VMLocator}, Path=ConversationViewModel }">
+             d:DesignHeight="550" d:DesignWidth="450">
     <UserControl.Background>
         <SolidColorBrush Color="#2D2D30"></SolidColorBrush>
     </UserControl.Background>

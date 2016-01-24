@@ -1,4 +1,6 @@
 ﻿using MahApps.Metro.Controls;
+using Microsoft.Practices.Unity;
+using TextReceiver.Common;
 using TextReceiver.ViewModels;
 
 namespace TextReceiver
@@ -10,7 +12,7 @@ namespace TextReceiver
   {
     public MainWindow()
     {
-      DataContext = new ApplicationViewModel();
+      DataContext = UnityIocContainer.Container.Resolve<ApplicationViewModel>();
       InitializeComponent();
     }
   }
