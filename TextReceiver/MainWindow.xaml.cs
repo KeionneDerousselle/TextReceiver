@@ -1,7 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using MahApps.Metro.Controls;
+﻿using MahApps.Metro.Controls;
 using TextReceiver.ViewModels;
 
 namespace TextReceiver
@@ -13,7 +10,7 @@ namespace TextReceiver
   {
     public MainWindow()
     {
-      this.DataContext = new ApplicationViewModel();
+      DataContext = new ApplicationViewModel();
       InitializeComponent();
     }
   }

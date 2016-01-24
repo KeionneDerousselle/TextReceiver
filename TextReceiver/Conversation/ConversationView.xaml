@@ -3,24 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:common="clr-namespace:TextReceiver.Views.common"
-             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d">
     <Button Background="Transparent" 
             Command="{Binding ConversationClickedCommand}" 
             Style="{DynamicResource SquareButtonStyle}">
         <Button.Template>
             <ControlTemplate TargetType="{x:Type Button}">
-                <Border 
-                    Margin="1" 
-                    BorderBrush="{DynamicResource AccentColorBrush}" 
-                    BorderThickness="0,0,0,1" 
-                    VerticalAlignment="Top">
-                    <StackPanel Orientation="Horizontal">
-                        <common:Avatar></common:Avatar>
-                        <Label x:Name="ConversationNameLabel" VerticalAlignment="Center" Foreground="{DynamicResource AccentColorBrush}" Content="{Binding Conversation.Name}"></Label>
+                <StackPanel Orientation="Horizontal">
+                        <Label x:Name="ConversationNameLabel" VerticalAlignment="Center" Content="{Binding Conversation.Name}"></Label>
                     </StackPanel>
-                </Border>
             </ControlTemplate>
         </Button.Template>
     </Button>

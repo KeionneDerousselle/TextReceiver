@@ -6,8 +6,10 @@
              xmlns:message="clr-namespace:TextReceiver.Message"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="450"
-             DataContext = "{Binding Source={StaticResource VMLocator}, Path=ConversationViewModel }"
-             >
+             DataContext = "{Binding Source={StaticResource VMLocator}, Path=ConversationViewModel }">
+    <UserControl.Background>
+        <SolidColorBrush Color="#2D2D30"></SolidColorBrush>
+    </UserControl.Background>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="7*"></RowDefinition>
@@ -15,13 +17,13 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" VerticalAlignment="Stretch">
             <ListBox ItemsSource="{Binding Messages}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.Background>
+                    <SolidColorBrush Color="#2D2D30"></SolidColorBrush>
+                </ListBox.Background>
                 <ListBox.ItemContainerStyle>
                     <Style TargetType="ListBoxItem">
                         <Style.Triggers>
                             <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="Background" Value="{DynamicResource AccentColorBrush}"></Setter>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="{DynamicResource AccentColorBrush}"></Setter>
                             </Trigger>
                         </Style.Triggers>

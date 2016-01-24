@@ -8,13 +8,19 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Title="Text Receiver" 
-        Height="550" 
-        Width="450" 
+        Height="450" 
+        Width="550" 
         ResizeMode="CanMinimize"
         GlowBrush="{DynamicResource AccentColorBrush}"
-        Icon="/Resources/mobile-message.png"
-        DataContext = "{Binding Source={StaticResource VMLocator}, Path=ApplicationViewModel }">
-
+        Icon="/Resources/mobile-message.png">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type conversations:ConversationsViewModel}">
+            <conversations:ConversationsView></conversations:ConversationsView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type selectedConversation:SelectedConversationViewModel}">
+            <selectedConversation:SelectedConversationView></selectedConversation:SelectedConversationView>
+        </DataTemplate>
+    </Window.Resources>
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
             <Button Width="20" Height="20">
@@ -52,16 +58,12 @@
             </Menu>
         </Controls:WindowCommands>
     </Controls:MetroWindow.RightWindowCommands>
-
-    <Window.Resources>
-        <DataTemplate DataType="{x:Type conversations:ConversationsViewModel}">
-            <conversations:ConversationsView></conversations:ConversationsView>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type selectedConversation:SelectedConversationViewModel}">
-            <selectedConversation:SelectedConversationView></selectedConversation:SelectedConversationView>
-        </DataTemplate>
-    </Window.Resources>
-    <StackPanel>
-        <Controls:TransitioningContentControl x:Name="ContentArea"  Content="{Binding CurrentViewModel}" Transition="Right" />
-    </StackPanel>
+    <Grid Margin="0,15,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ContentControl Content="{Binding CurrentNavModel}" Grid.Column="0"></ContentControl>
+        <ContentControl Content="{Binding CurrentContentModel}" Grid.Column="1"></ContentControl>
+    </Grid>
 </Controls:MetroWindow>

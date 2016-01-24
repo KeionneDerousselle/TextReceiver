@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
               d:DesignWidth="300">
         <Border Margin="1" BorderBrush="White" BorderThickness="0,0,0,1" VerticalAlignment="Top">
-        <StackPanel Orientation="Horizontal" Width="300">
+        <StackPanel Orientation="Horizontal">
             <StackPanel 
                 VerticalAlignment="Top" 
                 Orientation="Horizontal">

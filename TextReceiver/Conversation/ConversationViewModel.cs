@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using TextReceiver.Commands;
 using TextReceiver.TextReceiverMessages;
@@ -25,7 +24,6 @@ namespace TextReceiver.Conversation
     }
     private void On_Conversation_Clicked(object sender)
     {
-      MessageBox.Show("conversation was clicked");
       Messenger.Default.Send(new ConversationClicked()
       {
         ConversationId = Conversation.ConversationId

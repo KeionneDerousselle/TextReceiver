@@ -3,3 +3,5 @@ nuget MvvmLight
 nuget FirebaseSharp
 nuget MahApps.Metro
 nuget MahApps.Metro.Resources
+nuget Newtonsoft.Json
+nuget Unity

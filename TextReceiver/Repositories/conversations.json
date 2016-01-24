@@ -1,17 +1,45 @@
 {
   "conversations":{
-    "0":{
-      "name":"convo 1",
+    "0": {
+        "name": "convo 1",
+        "messages": {
+            "0": {
+                "sender": {
+                    "name": "keionne",
+                    "phoneNumber": "3377395608"
+                },
+                "content": "hi",
+                "receivers": {
+                    "0": {
+                        "name": "darrius",
+                        "phoneNumber": "4239335970"
+                    }
+                }
+            }
+        },
+        "participants": {
+            "0": {
+                "name": "darrius",
+                "phoneNumber": "4239335970"
+            },
+            "1": {
+                "name": "keionne",
+                "phoneNumber": "3377395608"
+            }
+        }
+    },
+       "1":{
+      "name":"convo 2",
       "messages":{
         "0":{
           "sender":{
             "name":"keionne",
-            "phoneNumber":"3377395608",
+            "phoneNumber":"3377395608"
             },
           "content": "hi",
           "receivers":{
             "0":{
-              "name":"darrius",
+              "name":"Lynus",
               "phoneNumber":"4239335970"
             }
           }
@@ -19,13 +47,13 @@
       },
       "participants":{
         "0":{
-          "name":"darrius",
+          "name":"Lynus",
           "phoneNumber":"4239335970"
         },
         "1":{
           "name":"keionne",
-          "phoneNumber":"3377395608",
-          },
+          "phoneNumber":"3377395608"
+          }
       }
     }
   }

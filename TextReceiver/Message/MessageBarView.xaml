@@ -20,7 +20,7 @@
                     </Rectangle.OpacityMask>
                 </Rectangle>
             </Button>
-            <TextBox Width="395"  Margin="5,0,0,0" TextWrapping="Wrap" ></TextBox>
+            <TextBox Width="385"  Margin="5,0,0,0" TextWrapping="Wrap" ></TextBox>
         </StackPanel>
     </Border>
 </UserControl>
